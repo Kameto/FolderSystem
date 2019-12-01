@@ -8,7 +8,7 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 	SetWindowText("ê}ä”ÉVÉXÉeÉÄ");
 	SetOutApplicationLogValidFlag(false);
 	ChangeWindowMode(true);
-	SetGraphMode(1920, 1080, 32);
+	SetGraphMode(1080, 640, 32);
 	SetFontSize(32);
 	if (DxLib_Init() == -1)
 	{
