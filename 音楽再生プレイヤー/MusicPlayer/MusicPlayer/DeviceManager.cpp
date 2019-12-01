@@ -6,7 +6,7 @@ Mouse* DeviceManager::mouse;
 DeviceManager::DeviceManager()
 {
 	this->key = new Keyboard();
-	this->mouse = new Mouse();
+	this->mouse = new Mouse(MusData::GetDataNum() * 192, 0.1);
 }
 
 DeviceManager::~DeviceManager()

@@ -23,9 +23,13 @@ void Scene::Update()
 	if (scrool < 0)
 	{
 		scrool = 0;
-		DevMgr::GetDevMouse()->ResetWheel();
+		DevMgr::GetDevMouse()->ResetWheel(true);
 	}
-
+	else if (scrool > MusData::GetDataNum() * 176)
+	{
+		DevMgr::GetDevMouse()->ResetWheel(false);
+		scrool = (DevMgr::GetDevMouse()->GetWheel() * 10) * 64;
+	}
 
 	for (int i = 0, n = MusData::GetDataNum(); i < n; i++)
 	{
@@ -35,7 +39,7 @@ void Scene::Update()
 		{
 			if (DevMgr::GetDevMouse()->GetButton(CLICK::M_LEFT) == 1)
 			{
-				DrawExtendFormatString(800, 0, 2.0, 2.0, 0xFFFFFF, "CLICK LEFT");
+				
 			}
 		}
 
@@ -94,4 +98,6 @@ void Scene::Draw()
 		Str str = MusData::GetMusicData(i);
 		DrawFormatString(192, i *192 - scrool, 0x000000, "No.%s\n‹È–¼:%s\n‰ÌŽè:%s", str.number.c_str(), str.music.c_str(), str.singerName.c_str());
 	}
+
+	DrawFormatString(600,0,0x000000,"scrool : %d", scrool);
 }

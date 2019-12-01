@@ -10,32 +10,53 @@ int Mouse::y;
 
 // ホイール
 int Mouse::wheel;
+int Mouse::maxWheel;
+double Mouse::wheelSpeed;
 double Mouse::wheelNum;
 
 Mouse::Mouse()
 {
-	mouse = 0;
+	mouse		 = 0;
 	for (int i = 0; i < 3; i++)
 	{
 		button[i] = 0;
 	}
-	x = 0;
-	y = 0;
-	wheel = 0;
-	wheelNum = 0;
+	x			 = 0;
+	y			 = 0;
+	wheel		 = 0;
+	maxWheel	 = 0;
+	wheelSpeed	 = 0.1;
+	wheelNum	 = 0.0;
+}
+
+Mouse::Mouse(const int max, const double speed)
+{
+	mouse		 = 0;
+	for (int i = 0; i < 3; i++)
+	{
+		button[i] = 0;
+	}
+	x			 = 0;
+	y			 = 0;
+	wheel		 = 0;
+	maxWheel	 = max;
+	wheelSpeed	 = speed;
+	wheelNum	 = 0.0;
 }
 
 Mouse::~Mouse()
 {
-	mouse = 0;
+	mouse		 = 0;
 	for (int i = 0; i < 3; i++)
 	{
 		button[i] = 0;
 	}
-	x = 0;
-	y = 0;
-	wheel = 0;
-	wheelNum = 0;
+	x			 = 0;
+	y			 = 0;
+	wheel		 = 0;
+	maxWheel	 = 0;
+	wheelSpeed	 = 0;
+	wheelNum	 = 0;
 }
 
 void Mouse::Update()
@@ -110,11 +131,11 @@ void Mouse::Update()
 	// ホイール処理
 	if (wheel > 0)
 	{
-		wheelNum += 0.1;
+		wheelNum += wheelSpeed;
 	}
 	else if (wheel < 0)
 	{
-		wheelNum -= 0.1;
+		wheelNum -= wheelSpeed;
 	}
 	else {}
 }
@@ -129,10 +150,18 @@ int Mouse::GetMouseY()
 	return y;
 }
 
-void Mouse::ResetWheel()
+void Mouse::ResetWheel(const bool flag)
 {
-	wheel = 0;
-	wheelNum = 0;
+	if (flag == true)
+	{
+		wheel = 0;
+		wheelNum = 0;
+	}
+	else
+	{
+		wheel = maxWheel;
+		wheelNum = GetWheel() - wheelSpeed;
+	}
 }
 
 int& Mouse::GetButton(const CLICK& incode)
