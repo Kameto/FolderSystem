@@ -24,12 +24,14 @@ class Mouse
 {
 public:
 	Mouse();
+	Mouse(const int, const double);
 	~Mouse();
 	static void Update();
 	static int& GetButton(const CLICK& incode);
 	static double GetWheel();
 	static int GetMouseX();
 	static int GetMouseY();
+	static void ResetWheel(const bool);
 	
 private:
 	
@@ -45,6 +47,8 @@ private:
 
 	// ÉzÉCÅ[Éã
 	static int wheel;
+	static int maxWheel;
+	static double wheelSpeed;
 	static double wheelNum;
 	
 };

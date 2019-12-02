@@ -6,7 +6,7 @@ Mouse* DeviceManager::mouse;
 DeviceManager::DeviceManager()
 {
 	this->key = new Keyboard();
-	this->mouse = new Mouse();
+	this->mouse = new Mouse((PicData::GetDataNum() / 4) * 96, 0.1);
 }
 
 DeviceManager::~DeviceManager()

@@ -8,6 +8,7 @@ enum class Picture
 {
 	NoImage,
 	Portion,
+	Knife,
 	Sword,
 	Num
 };
@@ -25,7 +26,8 @@ public:
 	Graphics();
 	~Graphics();
 	static void GraphLoad(const char* path = "graph/");
-	static GS GetGraph(const Picture pName = Picture::NoImage);// 画像情報を取得。デフォはNoImageを表示。
+	static GS GetGraph(const int pName = 0);// 画像情報を取得。デフォはNoImageを表示。
+	static const int GetGraphNum();
 
 private:
 	static std::vector<GS>graph;

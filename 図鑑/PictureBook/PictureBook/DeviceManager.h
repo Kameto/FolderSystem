@@ -1,6 +1,7 @@
 #pragma once
 #include "Keyboard.h"
 #include "Mouse.h"
+#include "PictureData.h"
 #include "Macro.h"
 
 class DeviceManager

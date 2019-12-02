@@ -2,13 +2,14 @@
 #include "Graphics.h"
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 struct Str
 {
-	std::string number;
-	std::string name;
-	std::string classification;
-	std::string Explanation;
+	std::string number;					// }ŠÓ”Ô†
+	std::string name;					// –¼Ì
+	std::string classification;			// •ª—Ş
+	std::vector<std::string>explanation;// à–¾
 };
 
 class PictureData

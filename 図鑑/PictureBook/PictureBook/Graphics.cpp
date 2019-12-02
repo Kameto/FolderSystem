@@ -38,11 +38,24 @@ void Graphics::GraphLoad(const char* path)
 			GetGraphSize(gs.graph, &gs.sizeX, &gs.sizeY);
 			graph.at(i) = gs;
 		}
+		else
+		{
+			GS gs;
+			gs.graph = 0;
+			gs.sizeX = 0;
+			gs.sizeY = 0;
+			graph.at(i) = gs;
+		}
 	}
 }
 
-GS Graphics::GetGraph(const Picture pName)
+GS Graphics::GetGraph(const int pName)
 {
 	// ‰æ‘œƒnƒ“ƒhƒ‹‚ÌŽæ“¾
-	return graph.at((int)pName);
+	return graph.at(pName);
+}
+
+const int Graphics::GetGraphNum()
+{
+	return (unsigned)graph.size();
 }

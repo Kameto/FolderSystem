@@ -37,8 +37,14 @@ void PictureData::LoadPictureData()
 			}
 			newData.number			 = a[0];
 			newData.name			 = a[1];
-			newData.classification	 = a[2];
-			newData.Explanation		 = a[3];
+			newData.classification = a[2];
+			std::istringstream bufis(a[3]);
+			std::string buf = "";
+			newData.explanation.resize(0);
+			while (std::getline(bufis, buf, '@'))
+			{
+				newData.explanation.push_back(buf);
+			}
 			pData.push_back(newData);
 		}
 	}
