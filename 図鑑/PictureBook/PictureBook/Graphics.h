@@ -1,4 +1,5 @@
 #pragma once
+#include "PictureData.h"
 #include <DxLib.h>
 #include <string>
 #include <vector>

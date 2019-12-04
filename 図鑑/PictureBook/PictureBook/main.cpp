@@ -18,10 +18,10 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 	{
 		return -1;
 	}
-	Graphics* gra = new Graphics();
-	gra->GraphLoad();
 	PictureData* pd = new PictureData();
 	pd->LoadPictureData();
+	Graphics* gra = new Graphics();
+	gra->GraphLoad();
 	DeviceManager* dmgr = new DeviceManager();
 	Scene* sc = new Scene();
 

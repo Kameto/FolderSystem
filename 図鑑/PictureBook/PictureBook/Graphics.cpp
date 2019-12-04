@@ -5,7 +5,7 @@ std::vector<GS>Graphics::graph;
 Graphics::Graphics()
 {
 	// 定義数分の画像ハンドルメモリを確保
-	graph.resize((int)Picture::Num);
+	graph.resize(PicData::GetDataNum());
 }
 
 Graphics::~Graphics()

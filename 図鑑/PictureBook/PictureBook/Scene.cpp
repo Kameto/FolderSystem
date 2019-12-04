@@ -25,7 +25,7 @@ void Scene::Update()
 		scrool = 0;
 		DevMgr::GetDevMouse()->ResetWheel(true);
 	}
-	else if(scrool > (PicData::GetDataNum() / 4) * 96)
+	else if(scrool > ((PicData::GetDataNum() + 4) / 4) * 96)
 	{
 		DevMgr::GetDevMouse()->ResetWheel(false);
 		scrool = (DevMgr::GetDevMouse()->GetWheel() * 10) * 64;
@@ -106,11 +106,12 @@ void Scene::Draw()
 	DrawBox(0, ((PicData::GetDataNum() - 4) * 64) - scrool, 672, ((PicData::GetDataNum() - 4) * 64) + 16 - scrool, 0x800000, true);
 	DrawBox(0, ((PicData::GetDataNum() - 4) * 64) - scrool, 672, ((PicData::GetDataNum() - 4) * 64) + 16 - scrool, 0x000000, false);
 
-	// 読み込んだアイテムの表示
 	for (int i = 0, n = PicData::GetDataNum(), j = 0; i < n; i++)
 	{
 		if (i % 4 == 0) { j = 0; }
 		else { j++; }
+
+		// 読み込んだアイテムの表示
 		if (i < Gra::GetGraphNum())
 		{
 			if (Gra::GetGraph(i).graph != 0)
@@ -128,6 +129,8 @@ void Scene::Draw()
 		}
 		DrawExtendFormatString(96 + (j * 160), 96  + ((i - j) * 40) - scrool, 1.25, 1.25, 0xFF0000, "%d", i + 1);
 
+
+		// 詳細情報の表示
 		if (picFlag[i] == true)
 		{
 			// 説明枠組み
@@ -135,6 +138,22 @@ void Scene::Draw()
 			DrawBox(675, 435, 1065, 475, 0xFFFFFF, true);
 			DrawBox(675, 475, 1065, 630, 0xFFFFFF, true);
 			DrawExtendFormatString(680, 480, 1.0, 1.0, 0x000000, "説明：");
+
+			if (i < Gra::GetGraphNum())
+			{
+				if (Gra::GetGraph(i).graph != 0)
+				{
+					DrawRotaGraph(675 + 192, 55 + 186, 1.50, 0.0,Gra::GetGraph(i).graph, false, false);
+				}
+				else
+				{
+					DrawRotaGraph(675 + 192, 55 + 186, 1.50, 0.0, Gra::GetGraph().graph, false, false);
+				}
+			}
+			else
+			{
+				DrawRotaGraph(675 + 192, 55 + 186, 1.50, 0.0, Gra::GetGraph().graph, false, false);
+			}
 
 			// 情報本体
 			Str str = PicData::GetPictureData(i);
@@ -146,6 +165,4 @@ void Scene::Draw()
 			}
 		}
 	}
-
-	// DrawExtendFormatString(700, 440, 1.0, 1.0, 0xFFFFFF, "%s\n%s\n%s\n%s", , str.name.c_str(), str.Explanation.c_str(), str.classification.c_str());
 }
