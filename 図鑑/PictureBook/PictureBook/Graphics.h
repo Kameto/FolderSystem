@@ -7,7 +7,7 @@
 enum class Picture
 {
 	NoImage,
-	Portion,
+	Mp3Player,
 	Knife,
 	Sword,
 	Num
