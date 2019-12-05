@@ -36,6 +36,7 @@ void Scene::Update()
 		if (i % 4 == 0) { j = 0; }
 		else { j++; }
 
+		//	マウス判定（スクロール込み）
 		if (abs(DevMgr::GetDevMouse()->GetMouseY() - (96 + ((i - j) * 40) - scrool)) < (Gra::GetGraph().sizeY / 4) &&
 			abs(DevMgr::GetDevMouse()->GetMouseX() - (96 + (j * 160))) < (Gra::GetGraph().sizeX / 4))
 		{
@@ -58,34 +59,6 @@ void Scene::Update()
 				}
 			}
 		}
-
-		// 画像本体
-		/*if (abs(DevMgr::GetDevMouse()->GetMouseY() - (i * 192 + 64 - scrool)) < (Gra::GetGraph().sizeY / 4) &&
-			abs(DevMgr::GetDevMouse()->GetMouseX() - 96)					  < (Gra::GetGraph().sizeX / 4))
-		{
-			if (DevMgr::GetDevMouse()->GetButton(CLICK::M_LEFT) == 1)
-			{
-				if (picFlag[i] == false)
-				{
-					for (int j = 0; j < n; j++)
-					{
-						if (picFlag[j] == true)
-						{
-							picFlag[j] = false;
-						}
-					}
-					picFlag[i] = true;
-				}
-				else
-				{
-					picFlag[i] = false;
-				}
-			}
-		}*/
-
-		// 三角関数を用いて押せるボタンを作る
-		// ボタンとマウスの距離を求めて角度を割り出し、
-		// ボタン円の範囲に入っていたらアクションを起こす
 	}
 }
 

@@ -13,6 +13,7 @@ PictureData::~PictureData()
 	if (!pData.empty())
 	{
 		pData.erase(pData.begin(), pData.end());
+		pData.shrink_to_fit();
 	}
 }
 

@@ -18,6 +18,7 @@ Graphics::~Graphics()
 			graph.at(i).graph = 0;
 		}
 		graph.erase(graph.begin(), graph.end());
+		graph.shrink_to_fit();
 	}
 }
 
