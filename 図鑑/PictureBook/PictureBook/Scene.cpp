@@ -134,9 +134,9 @@ void Scene::Draw()
 		if (picFlag[i] == true)
 		{
 			// ê‡ñæògëgÇ›
-			DrawBox(675, 5, 1065, 45, 0xFFFFFF, true);
-			DrawBox(675, 435, 1065, 475, 0xFFFFFF, true);
-			DrawBox(675, 475, 1065, 630, 0xFFFFFF, true);
+			DrawBox(675, 5, 1065, 45, 0xf5deb3, true);
+			DrawBox(675, 435, 1065, 475, 0xf5deb3, true);
+			DrawBox(675, 475, 1065, 630, 0xf5deb3, true);
 			DrawExtendFormatString(680, 480, 1.0, 1.0, 0x000000, "ê‡ñæÅF");
 
 			if (i < Gra::GetGraphNum())
