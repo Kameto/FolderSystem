@@ -5,10 +5,10 @@
 
 int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 {
-	SetWindowText("図鑑システム");
+	SetWindowText("ポケモン図鑑");
 	SetOutApplicationLogValidFlag(false);
 	ChangeWindowMode(true);
-	SetGraphMode(1080, 640, 32);
+	SetGraphMode(WIND_W, WIND_H, GRAPH_SIZE);
 	SetFontSize(32);
 	if (DxLib_Init() == -1)
 	{
