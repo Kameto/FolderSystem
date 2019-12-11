@@ -144,10 +144,10 @@ void Scene::Draw()
 				DrawExtendFormatString(680, 520 + (j * 32), 0.55, 1.0, 0x000000, "%s", str.explanation.at(j).c_str());
 			}
 
-			for (int j = 0; j < 7; j++)
-			{
-				DrawExtendFormatString(1300, 256 + (j * 32), 0.55, 1.0, 0x000000, "%s", str.racialvalue[j].c_str());
-			}
+			DrawExtendFormatString(1200, 64, 0.55, 1.0, 0x000000, "‡ŒvŽí‘°’l : %s", str.racialvalue[0].c_str());
+			DrawExtendFormatString(1200, 64 + 32, 0.55, 1.0, 0x000000, "%s    %s", str.racialvalue[1].c_str(), str.racialvalue[2].c_str());
+			DrawExtendFormatString(1200, 64 + 64, 0.55, 1.0, 0x000000, "%s    %s", str.racialvalue[3].c_str(), str.racialvalue[4].c_str());
+			DrawExtendFormatString(1200, 64 + 96, 0.55, 1.0, 0x000000, "%s    %s", str.racialvalue[5].c_str(), str.racialvalue[6].c_str());
 		}
 	}
 }
